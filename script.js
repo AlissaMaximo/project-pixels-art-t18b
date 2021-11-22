@@ -7,7 +7,12 @@ function select() {
     currentSelected.classList.add("selected");
 }
 
-document.getElementByClass("cor1").onload = select()
+function color() {
+    var color = document.getElementByClass("selected").style.backgroundColor;
 
+    document.this.style.backgroundColor = color;
+}
 
-
+window.onload = () => {
+    document.getElementByClass("cor1") = select();
+}
