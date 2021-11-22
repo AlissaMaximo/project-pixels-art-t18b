@@ -1,8 +1,9 @@
 .color {
-  border-style: 1px solid black;
+  border: 1px solid black;
   width: 80px;
   height: 80px;
   float: left;
+  margin-left: 8px;
 }
 
 .cor1 {
