@@ -1,18 +1,21 @@
-function select() {
-    var oldSelected = document.getElementByClass("selected");
-    var currentSelected = document.this;
-
-    oldSelected.classList.remove("selected");
-
-    currentSelected.classList.add("selected");
-}
-
-function color() {
-    var color = document.getElementByClass("selected").style.backgroundColor;
-
-    document.this.style.backgroundColor = color;
-}
-
 window.onload = () => {
-    document.getElementByClass("cor1") = select();
+  function select() {
+    let oldSelected = document.getElementsByClass("selected");
+    let currentSelected = event.target;
+
+    if (oldSelected != null) {
+      oldSelected.classList.remove("selected");
+    }
+    currentSelected.classList.add("selected");
+  }
+
+  function color() {
+    let color = document.getElementByClass("selected").style.backgroundColor;
+
+    event.target.style.backgroundColor = color;
+  }
+  /* Definindo a cor preta como cor inicial */
+  document.body.getElementsByClass("cor1") = select();
+
+
 }
