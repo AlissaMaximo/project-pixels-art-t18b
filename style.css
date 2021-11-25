@@ -22,19 +22,29 @@
   background-color: rgba(188, 227, 232, 255);
 }
 
-#pixel-board {
-  position: relative;
-  top: 50px;
-  left: 85px;
-  display: inline;
+.linha1 {
+  display: inline-block;
 }
 
-.linhas {
-  float: left;
+.linha2 {
+  display: inline-block;
+}
+
+.linha3 {
+  display: inline-block;
+}
+
+.linha4 {
+  display: inline-block;
+}
+
+.linha5 {
+  display: inline-block;
 }
 
 .pixel {
   width: 40px;
   height: 40px;
   border: 1px solid black;
+  margin: -3px;
 }
