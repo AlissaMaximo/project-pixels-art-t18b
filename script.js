@@ -21,4 +21,21 @@ window.onload = () => {
 
   document.getElementById('color-palette').addEventListener('click', selectColor);
 
+/* Clicar em um pixel faz com que ele seja colorido com a cor selecionada. */
+
+  let selectedColor = document.getElementsByClassName('selected')[0].style.backgroundColor;
+
+  function showMessage() {
+    console.log(document.getElementsByClassName('selected')[0]);
+  }
+  document.addEventListener('click', showMessage);
+
+  document.querySelectorAll('.pixel').forEach (singlePixel =>
+    {singlePixel.addEventListener ('click', event => {
+        singlePixel.style.backgroundColor = selectedColor;
+      }
+      )
+    }
+  )
+
 }
