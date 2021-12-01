@@ -53,3 +53,15 @@ function colorPixel(event) {
 pixelBoard.addEventListener('click', colorPixel);
 
 };
+
+/*
+REFERÊNCIAS
+
+O Baêta me ajudou em vários pontos pelo Code Review no GitHub.
+
+No requisito 7 alguém na mentoria do Baêta apontou pra aplicar apenas as crianças do color-palette.
+
+No requisito 8 Kesley Muniz e Polyana Sousa me ajudaram ao indicar o event.target, getComputedStyle e o if para pintar apenas os pixels e não o pixelBoard.
+
+*/
+
