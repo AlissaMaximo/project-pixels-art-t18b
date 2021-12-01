@@ -1,41 +1,55 @@
-window.onload = () => {
+/* Criando os pixels. Organizando os pixels. */
+  let pixelBoard = document.querySelector('#pixel-board');
+  let numLine = 0;
+
+  for (let i = 0; i < 25; i += 1) {
+    let pixel = document.createElement('div');
+
+    if (i % 5 === 0) {
+      numLine += 1;
+    }
+
+    pixel.classList.add('linha' + numLine);
+    pixel.classList.add('pixel');
+    pixelBoard.appendChild(pixel);
+  }
+
+window.onload = function () {
+  
 /* Deixando a cor de fundo de todos os pixels branca. */
   let allPixels = document.getElementsByClassName('pixel');
   let allPixelsLength = allPixels.length;
+
   for (let i = 0; i < allPixelsLength; i += 1) {
     allPixels[i].style.backgroundColor = 'white';
   }
-  
-/* Definindo a cor preta como cor inicial. */
-  let blackColor = document.getElementsByClassName('cor1');
-  blackColor[0].classList.add('selected');
 
 /* Ao clicar numa cor ela é selecionada. */
-  function selectColor (e) {
-    let oldSelected = document.getElementsByClassName('selected')[0];
-    let currentSelected = e.target;
+  function selectColor (theColor) {
+    let oldSelected = document.querySelector('.selected');
+    let currentSelected = theColor.target;
 
     oldSelected.classList.remove('selected');
     currentSelected.classList.add('selected');
   }
 
-  document.getElementById('color-palette').addEventListener('click', selectColor);
+  let colors = document.getElementById('color-palette').childNodes;
+
+  colors.forEach (theColor => {
+    theColor.addEventListener ('click', selectColor)
+  })
 
 /* Clicar em um pixel faz com que ele seja colorido com a cor selecionada. */
+function colorPixel(event) {
+  let selectedColor = document.querySelector('.selected');
+  let chosenPixel = event.target;
 
-  let selectedColor = document.getElementsByClassName('selected')[0].style.backgroundColor;
-
-  function showMessage() {
-    console.log(document.getElementsByClassName('selected')[0]);
+  let aColor = window.getComputedStyle(selectedColor).getPropertyValue('background-color');
+  if (chosenPixel !== pixelBoard) {
+    chosenPixel.style.backgroundColor = aColor;
   }
-  document.addEventListener('click', showMessage);
-
-  document.querySelectorAll('.pixel').forEach (singlePixel =>
-    {singlePixel.addEventListener ('click', event => {
-        singlePixel.style.backgroundColor = selectedColor;
-      }
-      )
-    }
-  )
-
 }
+
+pixelBoard.addEventListener('click', colorPixel);
+
+};
